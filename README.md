@@ -45,6 +45,6 @@ Gerenciamento de Empréstimos:
 Um empréstimo só pode ser registrado se o livro estiver disponível.
 - Finalizar um empréstimo (devolução do livro):
 Um empréstimo só pode ser finalizado se o livro foi devolvido.
--Listar todos os empréstimos ativos.
+- Listar todos os empréstimos ativos.
 
 
