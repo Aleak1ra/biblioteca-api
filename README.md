@@ -11,7 +11,7 @@ Este projeto é uma API de biblioteca desenvolvida utilizando Java 21, Spring Bo
 - Maven (gerenciamento de dependências)
   
 # Requisitos
-- Java 17 ou superior
+- Java 21 ou superior
 - Maven instalado
 
 # Como Rodar o Projeto
