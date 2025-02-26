@@ -15,8 +15,8 @@ Este projeto é uma API de biblioteca desenvolvida utilizando Java 21, Spring Bo
 - Maven instalado
 
 # Como Rodar o Projeto
-1- Clone o repositorio com comando "git clone https://github.com/Aleak1ra/biblioteca-api.git" na pasta onde você queira.
-2- Instale as dependências rodando o maven na sua IDE ou com o comando "mvn clean install"
+1. Clone o repositorio com comando "git clone https://github.com/Aleak1ra/biblioteca-api.git" na pasta onde você queira.
+2. Instale as dependências rodando o maven na sua IDE ou com o comando "mvn clean install"
 
 # Acesso ao console do banco de dados H2 (SSGBD)
 - Abrir o navegador e acessar a url "http://localhost:8080/h2-console"
