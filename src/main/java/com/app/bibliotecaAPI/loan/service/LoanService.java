@@ -4,8 +4,10 @@ import com.app.bibliotecaAPI.book.dto.BookResponseDTO;
 import com.app.bibliotecaAPI.book.model.Book;
 import com.app.bibliotecaAPI.book.model.BookStatus;
 import com.app.bibliotecaAPI.book.repository.BookRepository;
+import com.app.bibliotecaAPI.loan.dto.BookLoanStatsDTO;
 import com.app.bibliotecaAPI.loan.dto.LoanRequestDTO;
 import com.app.bibliotecaAPI.loan.dto.LoanResponseDTO;
+import com.app.bibliotecaAPI.loan.dto.UserLoanStatsDTO;
 import com.app.bibliotecaAPI.loan.model.Loan;
 import com.app.bibliotecaAPI.loan.model.LoanStatus;
 import com.app.bibliotecaAPI.loan.repository.LoanRepository;
@@ -108,6 +110,37 @@ public class LoanService {
                         loan.getReturnDate(),
                         loan.getStatus()
                 ))
+                .collect(Collectors.toList());
+    }
+
+    public List<BookLoanStatsDTO> getMostLoanedBooks() {
+        List<Object[]> results = loanRepository.findMostLoanedBooks();
+
+        return results.stream()
+                .map(result -> {
+                    Book book = (Book) result[0];
+                    Long loanCount = (Long) result[1];
+                    return new BookLoanStatsDTO(
+                            new BookResponseDTO(book),
+                            book.getTitle(),
+                            loanCount
+                    );
+                })
+                .collect(Collectors.toList());
+    }
+
+    public List<UserLoanStatsDTO> getMostUsersLoans() {
+        List<Object[]> results = loanRepository.findMostUsersLoans();
+
+        return results.stream()
+                .map(result -> {
+                    User user = (User) result[0];
+                    Long loanCount = (Long) result[1];
+                    return new UserLoanStatsDTO(
+                            new UserResponseDTO(user),
+                            loanCount
+                    );
+                })
                 .collect(Collectors.toList());
     }
 

@@ -1,7 +1,9 @@
 package com.app.bibliotecaAPI.loan.controller;
 
+import com.app.bibliotecaAPI.loan.dto.BookLoanStatsDTO;
 import com.app.bibliotecaAPI.loan.dto.LoanRequestDTO;
 import com.app.bibliotecaAPI.loan.dto.LoanResponseDTO;
+import com.app.bibliotecaAPI.loan.dto.UserLoanStatsDTO;
 import com.app.bibliotecaAPI.loan.service.LoanService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,4 +35,13 @@ public class LoanController {
         return ResponseEntity.ok(loanService.getAllLoans());
     }
 
+    @GetMapping("/reports/mostLoanedBooks")
+    public List<BookLoanStatsDTO> getMostLoanedBooks() {
+        return loanService.getMostLoanedBooks();
+    }
+
+    @GetMapping("/reports/mostUsersLoans")
+    public List<UserLoanStatsDTO> getMostUsersLoans() {
+        return loanService.getMostUsersLoans();
+    }
 }
