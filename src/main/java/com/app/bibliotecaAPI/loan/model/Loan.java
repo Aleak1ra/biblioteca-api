@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -26,18 +27,16 @@ public class Loan {
     @ManyToOne
     @JoinColumn(name = "book_id")
     @NotNull(message = "O livro não pode ser nulo")
-    @Column(nullable = false)
     private Book book;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     @NotNull(message = "O usuário não pode ser nulo")
-    @Column(nullable = false)
     private User user;
 
     @NotNull(message = "A data de empréstimo não pode ser nula")
     @Column(nullable = false)
-    private Date loanDate;
+    private LocalDateTime loanDate;
 
     @NotNull(message = "A data de devolução não pode ser nula")
     @Column(nullable = false)
@@ -72,11 +71,11 @@ public class Loan {
         this.user = user;
     }
 
-    public Date getLoanDate() {
+    public LocalDateTime getLoanDate() {
         return loanDate;
     }
 
-    public void setLoanDate(Date loanDate) {
+    public void setLoanDate(LocalDateTime loanDate) {
         this.loanDate = loanDate;
     }
 
