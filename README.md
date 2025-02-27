@@ -113,7 +113,6 @@ Body de Exemplo:
 {
 	"email": "teste@hotmail.com",
 	"name":"Teste da Silva Junior",
-  "cpf": "1234657489"
 }
 
 2. Atualizar Usuário por ID
