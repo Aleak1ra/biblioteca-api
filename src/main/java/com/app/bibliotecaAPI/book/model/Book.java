@@ -30,7 +30,6 @@ public class Book {
     @Column(length = 100, nullable = false)
     private String isbn;
 
-    @NotNull(message = "O status do livro não pode ser nulo")
     @Enumerated(EnumType.STRING)
     private BookStatus status;
 

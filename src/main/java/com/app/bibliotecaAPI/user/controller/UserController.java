@@ -3,7 +3,9 @@ package com.app.bibliotecaAPI.user.controller;
 import com.app.bibliotecaAPI.user.dto.UserRequestDTO;
 import com.app.bibliotecaAPI.user.dto.UserResponseDTO;
 import com.app.bibliotecaAPI.user.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+@Validated
 public class UserController {
 
     private final UserService userService;
@@ -19,12 +22,12 @@ public class UserController {
         this.userService = userService;
     }
     @PostMapping("/createUser")
-    public ResponseEntity<UserResponseDTO> createUser(@RequestBody UserRequestDTO body) {
+    public ResponseEntity<UserResponseDTO> createUser(@Valid @RequestBody UserRequestDTO body) {
         return ResponseEntity.ok(userService.createUser(body));
     }
 
     @PutMapping("/updateUser/{id}")
-    public ResponseEntity<UserResponseDTO> updateUser(@PathVariable Long id, @RequestBody UserRequestDTO body) {
+    public ResponseEntity<UserResponseDTO> updateUser(@PathVariable Long id, @Valid @RequestBody UserRequestDTO body) {
         return ResponseEntity.ok(userService.updateUser(id, body));
     }
 

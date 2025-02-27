@@ -23,7 +23,7 @@ public class BookService {
         newBook.setTitle(bookRequestDTO.title());
         newBook.setAuthor(bookRequestDTO.author());
         newBook.setIsbn(bookRequestDTO.isbn());
-        newBook.setStatus(bookRequestDTO.status());
+        newBook.setStatus(BookStatus.AVAILABLE);
 
         Book savedBook = bookRepository.save(newBook);
         return new BookResponseDTO(

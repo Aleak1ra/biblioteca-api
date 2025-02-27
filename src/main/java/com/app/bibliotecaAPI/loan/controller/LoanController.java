@@ -5,13 +5,16 @@ import com.app.bibliotecaAPI.loan.dto.LoanRequestDTO;
 import com.app.bibliotecaAPI.loan.dto.LoanResponseDTO;
 import com.app.bibliotecaAPI.loan.dto.UserLoanStatsDTO;
 import com.app.bibliotecaAPI.loan.service.LoanService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/loans")
+@Validated
 public class LoanController {
 
     private final LoanService loanService;
@@ -21,7 +24,7 @@ public class LoanController {
     }
 
     @PostMapping("/createLoan")
-    public ResponseEntity<LoanResponseDTO> createLoan(@RequestBody LoanRequestDTO body) {
+    public ResponseEntity<LoanResponseDTO> createLoan(@Valid @RequestBody LoanRequestDTO body) {
         return ResponseEntity.ok(loanService.createLoan(body));
     }
 

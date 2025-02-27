@@ -42,7 +42,7 @@ public class LoanService {
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         if (book.getStatus() != BookStatus.AVAILABLE) {
-            throw new IllegalStateException("O livro não está disponível para empréstimo");
+            throw new RuntimeException("O livro não está disponível para empréstimo");
         }
 
         Loan loan = new Loan();

@@ -1,4 +1,6 @@
 package com.app.bibliotecaAPI.user.dto;
 
-public record UserRequestDTO(String name, String email) {
+import jakarta.validation.constraints.NotBlank;
+
+public record UserRequestDTO(@NotBlank(message = "O nome do usuário não pode ser nulo ou vazio") String name, @NotBlank(message = "o email do usuário não pode ser nulo ou vazio") String email) {
 }
