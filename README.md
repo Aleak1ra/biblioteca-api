@@ -44,8 +44,178 @@ Gerenciamento de Empréstimos:
 
 - Registrar um novo empréstimo de livro:
 Um empréstimo só pode ser registrado se o livro estiver disponível.
+
 - Finalizar um empréstimo (devolução do livro):
 Um empréstimo só pode ser finalizado se o livro foi devolvido.
 - Listar todos os empréstimos ativos.
+
+# Endpoints da API de Livros (Book)
+1. Criar Livro
+URL: http://localhost:8080/books/createBook
+
+Método: POST
+
+Descrição: Cria um novo livro no sistema. Resposta de Sucesso (200 OK).
+
+Body de Exemplo:
+{
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald",
+  "isbn": "978-0743273565",
+  "status": "AVAILABLE"
+}
+
+2. Atualizar Livro por ID
+URL: http://localhost:8080/books/updateBook/{id}
+
+Método: PUT
+
+Descrição: Atualiza os detalhes de um livro existente com base no ID fornecido. Resposta de Sucesso (200 OK).
+
+Parâmetros:
+
+id: ID do livro a ser atualizado (substitua {id} pelo ID real do livro).
+Body de Exemplo:
+{
+  "title": "Titulo atualizado",
+  "author": "F. Scott Fitzgerald atualizado",
+  "isbn": "978-0743273565 atualizado",
+  "status": "BORROWED"
+}
+
+3. Deletar Livro por ID
+URL: http://localhost:8080/books/delete/{id}
+
+Método: DELETE
+
+Descrição: Deleta um livro do sistema com base no ID fornecido. Resposta de Sucesso (200 OK).
+
+Parâmetros:
+
+id: ID do livro a ser deletado (substitua {id} pelo ID real do livro).
+
+4. Listar Todos os Livros
+URL: http://localhost:8080/books/all
+
+Método: GET
+
+Descrição: Retorna uma lista de todos os livros cadastrados no sistema. Resposta de Sucesso (200 OK).
+
+# Endpoints da API de Usuários (User)
+1. Criar Usuário
+URL: http://localhost:8080/users/createUser
+
+Método: POST
+
+Descrição: Cria um novo usuário no sistema. Resposta de Sucesso (200 OK).
+
+Body de Exemplo:
+{
+	"email": "teste@hotmail.com",
+	"name":"Teste da Silva Junior",
+  "cpf": "1234657489"
+}
+
+2. Atualizar Usuário por ID
+URL: http://localhost:8080/users/updateUser/{id}
+
+Método: PUT
+
+Descrição: Atualiza os detalhes de um usuário existente com base no ID fornecido. Resposta de Sucesso (200 OK).
+
+Parâmetros:
+
+id: ID do usuário a ser atualizado (substitua {id} pelo ID real do usuário).
+Body de Exemplo:
+{
+	"email": "teste_atualizado@hotmail.com",
+	"name":"Teste da Silva Junior Atualizado"
+}
+
+3. Deletar Usuário por ID
+URL: http://localhost:8080/users/delete/{id}
+
+Método: DELETE
+
+Descrição: Deleta um usuário do sistema com base no ID fornecido.
+
+Parâmetros:
+
+id: ID do usuário a ser deletado (substitua {id} pelo ID real do usuário). Resposta de Sucesso (200 OK).
+
+4. Listar Todos os Usuários
+URL: http://localhost:8080/users/all
+
+Método: GET
+
+Descrição: Retorna uma lista de todos os usuários cadastrados no sistema. Resposta de Sucesso (200 OK).
+
+# Endpoints da API de Empréstimos (Loan)
+1. Criar Empréstimo (Emprestar Livro)
+URL: http://localhost:8080/loans/createLoan
+
+Método: POST
+
+Descrição: Cria um novo empréstimo de livro para um usuário. Resposta de Sucesso (200 OK).
+
+Body de Exemplo:
+{
+  "book": {
+    "id": 6
+  },
+  "user": {
+    "id": 3
+  },
+ 
+  "status": "ACTIVE"
+}
+
+2. Devolver Livro (Atualizar Empréstimo)
+URL: http://localhost:8080/loans/updateLoan/{id}
+
+Método: PUT
+
+Descrição: Finaliza um empréstimo, marcando o livro como devolvido e atualizando o status do empréstimo.
+
+Parâmetros:
+
+id: ID do empréstimo a ser atualizado (substitua {id} pelo ID real do empréstimo). Resposta de Sucesso (200 OK).
+
+3. Listar Todos os Empréstimos
+URL: http://localhost:8080/loans/getAllLoans
+
+Método: GET
+
+Descrição: Retorna uma lista de todos os empréstimos ativos no sistema. Resposta de Sucesso (200 OK).
+
+# Endpoints da API - Relatórios e Estatísticas
+1. Contar Livros com Status 'Disponível'
+URL: http://localhost:8080/books/count
+
+Método: GET
+
+Descrição: Retorna a quantidade total de livros com o status "AVAILABLE" (disponível) no sistema. Resposta de Sucesso (200 OK):
+
+2. Relatório de Usuários com Mais Empréstimos
+URL: http://localhost:8080/loans/reports/mostUsersLoans
+
+Método: GET
+
+Descrição: Retorna uma lista ordenada de usuários, do que mais fez empréstimos, com a quantidade de empréstimos realizados. Resposta de Sucesso (200 OK):
+
+3. Relatório de Livros com Mais Empréstimos
+URL: http://localhost:8080/loans/reports/mostBooksLoans
+
+Método: GET
+
+Descrição: Retorna uma lista ordenada de livros, do que mais foi emprestado, com a quantidade de empréstimos realizados. Resposta de Sucesso (200 OK).
+
+
+
+
+
+
+
+
 
 
