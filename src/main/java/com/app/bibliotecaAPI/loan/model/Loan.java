@@ -2,6 +2,7 @@ package com.app.bibliotecaAPI.loan.model;
 
 import com.app.bibliotecaAPI.book.model.Book;
 import com.app.bibliotecaAPI.user.model.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -9,8 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @NoArgsConstructor
@@ -36,11 +36,12 @@ public class Loan {
 
     @NotNull(message = "A data de empréstimo não pode ser nula")
     @Column(nullable = false)
-    private LocalDateTime loanDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate loanDate;
 
-    @NotNull(message = "A data de devolução não pode ser nula")
-    @Column(nullable = false)
-    private Date returnDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate returnDate;
 
     @NotNull(message = "O status do empréstimo não pode ser nulo")
     @Column(nullable = false)
@@ -71,19 +72,19 @@ public class Loan {
         this.user = user;
     }
 
-    public LocalDateTime getLoanDate() {
+    public LocalDate getLoanDate() {
         return loanDate;
     }
 
-    public void setLoanDate(LocalDateTime loanDate) {
+    public void setLoanDate(LocalDate loanDate) {
         this.loanDate = loanDate;
     }
 
-    public Date getReturnDate() {
+    public LocalDate getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(LocalDate returnDate) {
         this.returnDate = returnDate;
     }
 
