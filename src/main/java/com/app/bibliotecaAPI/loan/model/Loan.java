@@ -22,9 +22,11 @@ public class Loan {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "book_id")
     private Book book;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     private Date loanDate;

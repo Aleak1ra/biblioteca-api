@@ -1,9 +1,11 @@
 package com.app.bibliotecaAPI.book.dto;
 
-public record BookDTO(
+import com.app.bibliotecaAPI.book.model.BookStatus;
+
+public record BookResponseDTO(
         Long id,
         String title,
         String author,
         String isbn,
-        String status
+        BookStatus status
 ) {}
