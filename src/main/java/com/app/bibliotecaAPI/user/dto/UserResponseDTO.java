@@ -1,6 +1,6 @@
 package com.app.bibliotecaAPI.user.dto;
 
-public record UserDTO(
+public record UserResponseDTO(
         Long id,
         String name,
         String email

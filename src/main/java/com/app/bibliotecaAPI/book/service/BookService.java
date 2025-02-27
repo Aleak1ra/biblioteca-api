@@ -4,7 +4,6 @@ import com.app.bibliotecaAPI.book.dto.BookRequestDTO;
 import com.app.bibliotecaAPI.book.dto.BookResponseDTO;
 import com.app.bibliotecaAPI.book.model.Book;
 import com.app.bibliotecaAPI.book.repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,9 +11,11 @@ import java.util.List;
 @Service
 public class BookService {
 
-    @Autowired
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
 
     public BookResponseDTO createBook(BookRequestDTO bookRequestDTO) {
         Book newBook = new Book();
