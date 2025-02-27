@@ -38,6 +38,11 @@ public class BookController {
         return ResponseEntity.ok(bookService.getAllBooks());
     }
 
+    @GetMapping("/count")
+    public ResponseEntity<Long> countBooks() {
+        return ResponseEntity.ok(bookService.countAvailableBooks());
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);

@@ -3,6 +3,7 @@ package com.app.bibliotecaAPI.book.service;
 import com.app.bibliotecaAPI.book.dto.BookRequestDTO;
 import com.app.bibliotecaAPI.book.dto.BookResponseDTO;
 import com.app.bibliotecaAPI.book.model.Book;
+import com.app.bibliotecaAPI.book.model.BookStatus;
 import com.app.bibliotecaAPI.book.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
@@ -88,5 +89,12 @@ public class BookService {
                 ))
                 .toList();
     }
+
+    public Long countAvailableBooks() {
+        return bookRepository.countByStatus(BookStatus.AVAILABLE);
+    }
+
 }
+
+
 
