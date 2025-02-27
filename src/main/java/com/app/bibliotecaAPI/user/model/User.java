@@ -19,6 +19,7 @@ public class User {
     @NotNull(message = "O nome do usuário não pode ser nulo")
     @Column(length = 100, nullable = false)
     private String name;
+
     @NotNull(message = "O email do usuário não pode ser nulo")
     @Column(length = 100, nullable = false)
     private String email;

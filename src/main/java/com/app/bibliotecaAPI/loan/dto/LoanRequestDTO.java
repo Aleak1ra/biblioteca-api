@@ -5,12 +5,6 @@ import com.app.bibliotecaAPI.user.dto.UserResponseDTO;
 
 import java.util.Date;
 
-public record LoanDTO(
-        Long id,
-        BookResponseDTO book,
-        UserResponseDTO user,
-        Date loanDate,
-        Date returnDate,
-        String status
-) {
+public record LoanRequestDTO(BookResponseDTO book, UserResponseDTO user, Date loanDate, Date returnDate,
+                             String status) {
 }
