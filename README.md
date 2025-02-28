@@ -49,6 +49,12 @@ Um empréstimo só pode ser registrado se o livro estiver disponível.
 Um empréstimo só pode ser finalizado se o livro foi devolvido.
 - Listar todos os empréstimos ativos.
 
+Relatórios e Estatísticas:
+
+- Quantidade total de livros disponíveis.
+- Lista de usuários com mais empréstimos realizados.
+- Livros mais emprestados.
+
 # Endpoints da API de Livros (Book)
 1. Criar Livro
 URL: http://localhost:8080/books/createBook
