@@ -22,7 +22,7 @@ public class UserController {
         this.userService = userService;
     }
     @PostMapping("/createUser")
-    public ResponseEntity<UserResponseDTO> createUser(@Valid @RequestBody UserRequestDTO body) {
+    public ResponseEntity<UserResponseDTO> createUser(@Valid @RequestBody UserRequestDTO body) throws Exception {
         return ResponseEntity.ok(userService.createUser(body));
     }
 

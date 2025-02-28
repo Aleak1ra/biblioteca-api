@@ -19,6 +19,17 @@ public class BookService {
     }
 
     public BookResponseDTO createBook(BookRequestDTO bookRequestDTO) {
+
+        if (bookRequestDTO.title() == null || bookRequestDTO.title().isBlank()) {
+            throw new RuntimeException("O título do livro não pode ser vazio.");
+        }
+        if (bookRequestDTO.author() == null || bookRequestDTO.author().isBlank()) {
+            throw new RuntimeException("O autor do livro não pode ser vazio.");
+        }
+        if (bookRequestDTO.isbn() == null || bookRequestDTO.isbn().isBlank()) {
+            throw new RuntimeException("O ISBN do livro não pode ser vazio.");
+        }
+
         Book newBook = new Book();
         newBook.setTitle(bookRequestDTO.title());
         newBook.setAuthor(bookRequestDTO.author());

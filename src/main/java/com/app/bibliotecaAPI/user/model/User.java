@@ -5,8 +5,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @EqualsAndHashCode
 @Table(name = "users")
@@ -23,6 +21,17 @@ public class User {
     @NotNull(message = "O email do usuário não pode ser nulo")
     @Column(length = 100, nullable = false)
     private String email;
+
+    public User() {
+    }
+
+    public User(Long id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+
 
     public Long getId() {
         return id;

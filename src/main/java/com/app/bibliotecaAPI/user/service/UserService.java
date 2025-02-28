@@ -18,7 +18,16 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserResponseDTO createUser(UserRequestDTO body) {
+    public UserResponseDTO createUser(UserRequestDTO body) throws Exception {
+
+        if(body.name() == null || body.name().isBlank()) {
+            throw new Exception("O nome do usuário não pode ser vazio.");
+        }
+        if(body.email() == null || body.email().isBlank()) {
+            throw new Exception("O email do usuário não pode ser vazio.");
+        }
+
+
         User user = new User();
         user.setName(body.name());
         user.setEmail(body.email());

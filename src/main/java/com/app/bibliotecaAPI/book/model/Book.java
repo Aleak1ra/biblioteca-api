@@ -7,8 +7,6 @@ import lombok.*;
 
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @EqualsAndHashCode
 @Table(name = "books")
@@ -32,6 +30,17 @@ public class Book {
 
     @Enumerated(EnumType.STRING)
     private BookStatus status;
+
+    public Book(Long id, String title, String author, String isbn, BookStatus status) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.status = status;
+    }
+
+    public Book() {
+    }
 
     public Long getId() {
         return id;

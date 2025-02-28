@@ -13,8 +13,6 @@ import lombok.ToString;
 import java.time.LocalDate;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @EqualsAndHashCode
 @Table(name = "loans")
@@ -47,6 +45,18 @@ public class Loan {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private LoanStatus status;
+
+    public Loan() {
+    }
+
+    public Loan(Long id, Book book, User user, LocalDate loanDate, LocalDate returnDate, LoanStatus status) {
+        this.id = id;
+        this.book = book;
+        this.user = user;
+        this.loanDate = loanDate;
+        this.returnDate = returnDate;
+        this.status = status;
+    }
 
     public Long getId() {
         return id;
